@@ -1,0 +1,60 @@
+﻿@model List<EventoExamen>
+
+@{
+    string UrlBucket = keysModel.UrlBucket;
+}
+
+<h1>Eventos por Categoria</h1>
+
+@if (Model != null)
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    ID EVENTO
+                </th>
+                <th>
+                    NOMBRE
+                </th>
+                <th>
+                    ARTISTA
+                </th>
+                <th>
+                    IDCATEGORIA
+                </th>
+                <th>
+                    IMAGEN
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.IdEvento
+                    </td>
+                    <td>
+                        @item.Nombre
+                    </td>
+                    <td>
+                        @item.Artista
+                    </td>
+                    <td>
+                        @item.IdCategoria
+                    </td>
+                    <td>
+                        <img src="@UrlBucket@item.Imagen" style="width:70px; height: 80px" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h1>No hay eventos</h1>
+}
+
+

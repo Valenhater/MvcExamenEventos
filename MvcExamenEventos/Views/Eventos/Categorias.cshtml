@@ -1,0 +1,35 @@
+﻿@model List<CategoriaEvento>
+
+
+<h1>Categorias</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                ID EVENTO
+            </th>
+            <th>
+                NOMBRE
+            </th> 
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.IdEvento
+                </td>
+                <td>
+                    @item.Nombre
+                </td>  
+                <td>
+                    <a asp-controller="Eventos" asp-action="EventosCategoria" asp-route-id="@item.IdEvento" >Go to Events</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
